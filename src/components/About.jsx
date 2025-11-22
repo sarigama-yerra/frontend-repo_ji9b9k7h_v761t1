@@ -1,19 +1,18 @@
+import { useI18n } from '../i18n'
+
 export default function About() {
+  const { tx } = useI18n()
+  const badges = tx('about.badges') || []
   return (
     <section id="about" className="bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 grid lg:grid-cols-2 gap-10 items-center">
         <div className="order-2 lg:order-1">
-          <h2 className="text-3xl sm:text-4xl font-bold text-slate-900">About Tadeemco</h2>
+          <h2 className="text-3xl sm:text-4xl font-bold text-slate-900">{tx('about.title')}</h2>
           <p className="mt-4 text-slate-600 leading-relaxed">
-            We are an engineering‑first ICT and ELV solutions provider, delivering reliable infrastructure for enterprises and government. Our teams combine rigorous project management, certified engineering practices, and safety standards to deliver systems that last.
+            {tx('about.desc')}
           </p>
           <div className="mt-6 grid grid-cols-2 gap-4">
-            {[
-              ['ISO 9001:2015', 'Quality management'],
-              ['ISO 27001', 'Information security'],
-              ['HSE Compliant', 'Safety‑first operations'],
-              ['Certified Engineers', 'Multi‑vendor expertise']
-            ].map(([a,b]) => (
+            {badges.map(([a,b]) => (
               <div key={a} className="rounded-xl border border-slate-200 p-4">
                 <div className="text-sm font-semibold text-slate-900">{a}</div>
                 <div className="text-xs text-slate-600">{b}</div>

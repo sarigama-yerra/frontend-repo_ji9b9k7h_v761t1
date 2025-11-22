@@ -1,4 +1,8 @@
+import { useI18n } from '../i18n'
+
 export default function Footer() {
+  const { tx } = useI18n()
+  const year = new Date().getFullYear()
   return (
     <footer className="bg-white border-t border-slate-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
@@ -11,7 +15,7 @@ export default function Footer() {
             <p className="mt-3 text-slate-600">Engineering, ICT, and ELV solutions for mission‑critical environments.</p>
           </div>
           <div>
-            <div className="font-semibold text-slate-900">Services</div>
+            <div className="font-semibold text-slate-900">{tx('footer.services')}</div>
             <ul className="mt-3 space-y-2 text-slate-600">
               <li>Structured Cabling</li>
               <li>ELV Systems</li>
@@ -20,7 +24,7 @@ export default function Footer() {
             </ul>
           </div>
           <div>
-            <div className="font-semibold text-slate-900">Company</div>
+            <div className="font-semibold text-slate-900">{tx('footer.company')}</div>
             <ul className="mt-3 space-y-2 text-slate-600">
               <li>About</li>
               <li>Projects</li>
@@ -29,7 +33,7 @@ export default function Footer() {
             </ul>
           </div>
           <div>
-            <div className="font-semibold text-slate-900">Contact</div>
+            <div className="font-semibold text-slate-900">{tx('footer.contact')}</div>
             <ul className="mt-3 space-y-2 text-slate-600">
               <li>info@tadeemco.com</li>
               <li>+974 0000 0000</li>
@@ -38,8 +42,8 @@ export default function Footer() {
           </div>
         </div>
         <div className="mt-8 flex items-center justify-between text-xs text-slate-500">
-          <p>© {new Date().getFullYear()} Tadeemco. All rights reserved.</p>
-          <p>Built with Flames.blue</p>
+          <p>{tx('footer.copy')(year)}</p>
+          <p>{tx('footer.built')}</p>
         </div>
       </div>
     </footer>

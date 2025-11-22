@@ -1,3 +1,5 @@
+import { useI18n } from '../i18n'
+
 const clients = [
   'https://dummyimage.com/160x60/edf2f7/2d3748&text=Client+1',
   'https://dummyimage.com/160x60/edf2f7/2d3748&text=Client+2',
@@ -10,12 +12,13 @@ const clients = [
 ]
 
 export default function Clients() {
+  const { tx } = useI18n()
   return (
     <section id="clients" className="bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="max-w-3xl">
-          <h2 className="text-2xl sm:text-3xl font-bold text-slate-900">Clients & Partners</h2>
-          <p className="mt-3 text-slate-600">Trusted by organizations across telecom, education, healthcare, and government.</p>
+          <h2 className="text-2xl sm:text-3xl font-bold text-slate-900">{tx('clients.title')}</h2>
+          <p className="mt-3 text-slate-600">{tx('clients.desc')}</p>
         </div>
         <div className="mt-8 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-6 items-center">
           {clients.map((src, i) => (

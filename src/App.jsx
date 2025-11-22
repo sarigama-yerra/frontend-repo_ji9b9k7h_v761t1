@@ -6,10 +6,12 @@ import About from './components/About'
 import Clients from './components/Clients'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
+import { I18nProvider, useI18n } from './i18n'
 
-function App() {
+function AppInner() {
+  const { dir } = useI18n()
   return (
-    <div className="text-slate-800 bg-white">
+    <div className="text-slate-800 bg-white" dir={dir}>
       <Navbar />
       <main className="[scroll-behavior:smooth]">
         <Hero />
@@ -21,6 +23,14 @@ function App() {
       </main>
       <Footer />
     </div>
+  )
+}
+
+function App() {
+  return (
+    <I18nProvider>
+      <AppInner />
+    </I18nProvider>
   )
 }
 
